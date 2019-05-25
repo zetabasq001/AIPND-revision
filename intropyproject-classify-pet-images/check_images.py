@@ -4,7 +4,7 @@
 #
 # TODO 0: Add your information below for Programmer & Date Created.
 # PROGRAMMER: George Zaldivar
-# DATE CREATED: 5/24/2019                                  
+# DATE CREATED: 5/24/2019
 # REVISED DATE:
 # PURPOSE: Classifies pet images using a pretrained CNN model, compares these
 #          classifications to the true identity of the pets in the images, and
@@ -40,6 +40,7 @@ from print_results import print_results
 # Main program function defined below
 def main():
     # TODO 0: Measures total program runtime by collecting start time
+    # Sets start time
     start_time = time()
 
     # TODO 1: Define get_input_args function within the file get_input_args.py
@@ -60,7 +61,7 @@ def main():
     #             get_pet_labels(in_arg.dir)
     # This function creates the results dictionary that contains the results,
     # this dictionary is returned from the function call as the variable results
-    results = get_pet_labels(None)
+    results = get_pet_labels(in_arg.dir)
 
     # Function that checks Pet Images in the results Dictionary using results
     check_creating_pet_image_labels(results)
