@@ -17,8 +17,8 @@
 #
 ##
 # Imports python modules
-from os import listdir
-
+from os import listdir, getcwd
+from os.path import splitext
 # TODO 2: Define get_pet_labels function below please be certain to replace None
 #       in the return statement with results_dic dictionary that you create
 #       with this function
@@ -40,8 +40,12 @@ def get_pet_labels(image_dir):
       List. The list contains for following item:
          index 0 = pet image label (string)
     """
+
+    # Retrieve current working directory
+    current_dir = getcwd()
+
     # Retrieve the filenames from folder pet_images/
-    filenames_list = listdir("./" + image_dir)
+    filenames_list = listdir(current_dir + image_dir)
 
     # Creates empty dictionary named results_dic
     results_dic = dict()
@@ -49,8 +53,15 @@ def get_pet_labels(image_dir):
     # iterate through filenames
     for filename in filenames_list:
 
+        # check for dot hidden files and ignore
+        if filename.startswith("."):
+            continue
+
         # Sets pet_image variable to a filename
         pet_image = filename
+
+        # remove file extension
+        pet_image = splitext(pet_image)[0]
 
         # Sets string to lower case letters
         low_pet_image = pet_image.lower()
@@ -63,7 +74,7 @@ def get_pet_labels(image_dir):
 
         # Loops to check if word in pet name is only
         # alphabetic characters - if true append word
-        # to pet_name separated by trailing space
+        # to pet_name separated by space
         for word in word_list_pet_image:
             if word.isalpha():
                 pet_name += word + " "
