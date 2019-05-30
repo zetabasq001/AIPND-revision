@@ -22,6 +22,7 @@
 ##
 # Imports classifier function for using CNN to classify images
 from classifier import classifier
+from os import getcwd
 
 # TODO 3: Define classify_images function below, specifically replace the None
 #       below by the function definition of the classify_images function.
@@ -66,11 +67,14 @@ def classify_images(images_dir, results_dic, model):
            None - results_dic is mutable data type so no return needed.
     """
 
+    # Retrieve current working directory
+    current_dir = getcwd()
+
     # iterate over pet images
     for filename, pet_breed in results_dic.items():
 
         # full path to a particular pet image
-        fullpath = "./" + images_dir + filename
+        fullpath = current_dir + images_dir + filename
 
         # image classification with respective model
         image_classification = classifier(fullpath, model)
