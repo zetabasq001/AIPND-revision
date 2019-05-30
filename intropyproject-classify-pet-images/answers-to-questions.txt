@@ -1,0 +1,25 @@
+Project Results of 40 Image Classification:
+
+Conclusion 1:  VGG and Alexnet correctly classify dogs and non-dog images 100 percent
+of the time.
+
+Conclusion 2:  VGG is the most accurate with dog breeds classified correctly more
+than 90 percent of the time.
+
+Conclusion 3:  However, considering the time resources of both models, ResNet and VGG,
+ResNet is 10 times faster than VGG and almost as accurate in classifying dogs, non-dogs,
+and dog breeds; therefore, ResNet is a good enough CNN model for image classification.
+
+
+Results of Uploaded Image Classification:
+
+1.  All three CNN models correctly classified the breed of dog.
+
+2.  All three models correctly classified both un-flipped and flipped dog
+pictures correctly.
+
+3.  All three models correctly classified both non-dog images as not a dog.
+
+4.  The model AlexNet exhibited the fastest and greatest accuracy when run on the
+uploaded images when compared to the other two models because it was the only model
+to correctly classify the type of inanimate object from an uploaded image of a chair.
