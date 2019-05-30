@@ -111,17 +111,31 @@ def calculates_results_stats(results_dic):
     results_stats_dic["n_notdogs_img"] =  \
     results_stats_dic["n_images"] - results_stats_dic["n_dogs_img"]
 
-    # calculate the percentage of matches of any pet image
-    results_stats_dic["pct_match"] =  \
-    float(100) * results_stats_dic["n_match"] / results_stats_dic["n_images"]
+    # avoid division by zero
+    if results_stats_dic["n_images"] == 0:
 
-    # calculate the percentage of correct dogs classified
-    results_stats_dic["pct_correct_dogs"] =  \
-    float(100) * results_stats_dic["n_correct_dogs"] / results_stats_dic["n_dogs_img"]
+        # if no images, then set this key in dictionary to zero
+        results_stats_dic["n_images"] = 0
 
-    # calculate the percentage of correct breeds classified
-    results_stats_dic["pct_correct_breed"] =  \
-    float(100) * results_stats_dic["n_correct_breed"] / results_stats_dic["n_dogs_img"]
+    else:
+        # calculate the percentage of matches of any pet image
+        results_stats_dic["pct_match"] =  \
+        float(100) * results_stats_dic["n_match"] / results_stats_dic["n_images"]
+
+    # avoid division by zero
+    if results_stats_dic["n_dogs_img"] == 0:
+
+        # if dog images, then set this key in dictionary to zero
+        results_stats_dic["n_dogs_img"] = 0
+
+    else:
+        # calculate the percentage of correct dogs classified
+        results_stats_dic["pct_correct_dogs"] =  \
+        float(100) * results_stats_dic["n_correct_dogs"] / results_stats_dic["n_dogs_img"]
+
+        # calculate the percentage of correct breeds classified
+        results_stats_dic["pct_correct_breed"] =  \
+        float(100) * results_stats_dic["n_correct_breed"] / results_stats_dic["n_dogs_img"]
 
     # avoid division by zero
     if results_stats_dic["n_notdogs_img"] == 0:
